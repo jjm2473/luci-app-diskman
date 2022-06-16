@@ -43,7 +43,7 @@ d:option(DummyValue, "temp", translate("Temp"))
 d:option(DummyValue, "p_table", translate("Partition Table"))
 d:option(DummyValue, "sata_ver", translate("SATA Version"))
 -- d:option(DummyValue, "rota_rate", translate("Rotation Rate"))
-d:option(DummyValue, "health", translate("Health"))
+d:option(DummyValue, "health_status", translate("Health") .. "<br/>" .. translate("Status"))
 -- d:option(DummyValue, "status", translate("Status"))
 
 local btn_eject = d:option(Button, "_eject")
@@ -53,7 +53,7 @@ btn_eject.inputtitle = translate("Eject")
 btn_eject.forcewrite = true
 btn_eject.write = function(self, section, value)
   local dev = section
-  local disk_info = dm.get_disk_info(dev)
+  local disk_info = dm.get_disk_info(dev, true)
   if disk_info.p_table:match("Raid") then
     m.errmessage = translate("Unsupported raid reject!")
     return
