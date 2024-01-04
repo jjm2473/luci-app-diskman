@@ -8,7 +8,7 @@ PKG_LICENSE:=AGPL-3.0
 
 LUCI_TITLE:=Disk Manager interface for LuCI
 
-LUCI_DEPENDS:=+e2fsprogs +parted +smartmontools +blkid \
+LUCI_DEPENDS:=+e2fsprogs +parted +smartmontools +blkid +swap-utils \
 	+PACKAGE_$(PKG_NAME)_INCLUDE_btrfs_progs:btrfs-progs \
 	+PACKAGE_$(PKG_NAME)_INCLUDE_lsblk:lsblk \
 	+PACKAGE_$(PKG_NAME)_INCLUDE_mdadm:mdadm \
