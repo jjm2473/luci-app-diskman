@@ -469,7 +469,7 @@ d.get_format_cmd = function()
   }
   result = {}
   for fmt, obj in pairs(AVAILABLE_FMTS) do
-    local cmd = luci.sys.exec("/usr/bin/which " .. obj["cmd"])
+    local cmd = luci.sys.exec("PATH=/usr/sbin:/sbin:/usr/bin:/bin /usr/bin/which " .. obj["cmd"])
     if cmd:match(obj["cmd"]) then
       result[fmt] = { cmd = cmd:match("^.+"..obj["cmd"]) ,option = obj["option"] }
     end
